@@ -13,18 +13,14 @@ class PhotoFactory extends Factory
     /**
      * Define the model's default state.
      *
+     * @return array<string, mixed>
      */
-
-
-
 
     public function definition(): array
     {
-        for ($i = 10; $i > 0; $i--) {
-            return [
-                'url' => fake()->imageUrl(),
-                'gallery_id' => Gallery::where('id', $i)->first()->id,
-            ];
-        }
+        return [
+            'url' => fake()->imageUrl(),
+            'gallery_id' => Gallery::all()->random()->id,
+        ];
     }
 }

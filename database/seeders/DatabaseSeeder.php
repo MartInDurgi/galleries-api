@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             PhotoSeeder::class,
         ]);
+        \App\Models\Photo::factory(30)->create();
 
 
 
