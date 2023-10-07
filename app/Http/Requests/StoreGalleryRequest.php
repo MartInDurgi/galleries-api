@@ -30,8 +30,9 @@ class StoreGalleryRequest extends FormRequest
             'title' => 'required|min:2|max:255|string|unique:galleries',
             'body' => 'max:1000|string',
             'user_email' => 'required|exists:users,email',
-            "url's" => 'required|array',
-            "url's.*"  => ['url', new PhotoFormat],
+            "urls" => 'required|array',
+            "urls.*.*"  => ['url', new PhotoFormat],
         ];
     }
 }
+//  ,

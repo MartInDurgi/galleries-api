@@ -14,7 +14,7 @@ class PhotoFormat implements ValidationRule
      */
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
-        $formats = ['jpg', 'png', 'jpeg', 'gif'];
+        $formats = ['.jpg', '.png', '.jpeg', '.gif'];
 
         $contains = false;
         foreach ($formats as $format) {

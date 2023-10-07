@@ -58,10 +58,10 @@ class GalleryController extends Controller
             'body' => $data['body'],
             'user_id' => $user_id
         ]);
-        $photos = $data["url's"];
+        $photos = $data["urls"];
         foreach ($photos as $photo) {
             Photo::create([
-                'url' => $photo,
+                'url' => $photo['inputBox'],
                 'gallery_id' => $gallery->id,
             ]);
         }
@@ -69,7 +69,7 @@ class GalleryController extends Controller
 
         //return ([$user_id, $data]);
 
-        return [$gallery, $data["url's"]];
+        return [$gallery, $data["urls"]];
     }
 
     /**
