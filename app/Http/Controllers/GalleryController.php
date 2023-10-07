@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Gallery;
 use App\Http\Requests\StoreGalleryRequest;
 use App\Http\Requests\UpdateGalleryRequest;
+use App\Http\Resources\GalleryResource;
+use App\Models\Photo;
+use App\Models\User;
 
 class GalleryController extends Controller
 {
@@ -47,6 +50,26 @@ class GalleryController extends Controller
      */
     public function store(StoreGalleryRequest $request)
     {
+        $data = $request->validated();
+        //$gallery = Gallery::create($data);
+        $user_id = User::where('email', $data['user_email'])->first()->id;
+        $gallery = Gallery::create([
+            'title' => $data['title'],
+            'body' => $data['body'],
+            'user_id' => $user_id
+        ]);
+        $photos = $data["url's"];
+        foreach ($photos as $photo) {
+            Photo::create([
+                'url' => $photo,
+                'gallery_id' => $gallery->id,
+            ]);
+        }
+
+
+        //return ([$user_id, $data]);
+
+        return [$gallery, $data["url's"]];
     }
 
     /**
