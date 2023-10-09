@@ -15,7 +15,7 @@ class PhotoSeeder extends Seeder
      */
     public function run(): void
     {
-        for ($i = 40; $i > 0; $i--) {
+        for ($i = 30; $i > 0; $i--) {
             DB::table('photos')->insert([
                 'url' => fake()->imageUrl(),
                 'gallery_id' => Gallery::where('id', $i)->first()->id,
