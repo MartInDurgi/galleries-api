@@ -14,8 +14,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        //  \App\Models\User::factory(10)->create();
-        \App\Models\Gallery::factory(10)->create();
+        \App\Models\User::factory(10)->create();
+        \App\Models\Gallery::factory(40)->create();
         \App\Models\Photo::factory(100)->create();
         $this->call([
             PhotoSeeder::class,
