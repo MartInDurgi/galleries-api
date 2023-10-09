@@ -14,13 +14,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\User::factory(10)->create();
+        //  \App\Models\User::factory(10)->create();
         \App\Models\Gallery::factory(10)->create();
-        // \App\Models\Photo::factory(100)->create();
+        \App\Models\Photo::factory(100)->create();
         $this->call([
             PhotoSeeder::class,
         ]);
-        \App\Models\Photo::factory(30)->create();
+        \App\Models\Photo::factory(100)->create();
 
 
 

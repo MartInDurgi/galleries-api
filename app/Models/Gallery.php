@@ -15,7 +15,7 @@ class Gallery extends Model
         'body',
         'user_id'
     ];
-    protected $with = ['photos'];
+    protected $with = ['photos', 'user'];
 
     public function user()
     {
